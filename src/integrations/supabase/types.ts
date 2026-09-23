@@ -1082,6 +1082,7 @@ export type Database = {
       }
       is_org_member: { Args: { _org: string }; Returns: boolean }
       is_super_admin: { Args: never; Returns: boolean }
+      seed_demo_data: { Args: { _org: string }; Returns: undefined }
     }
     Enums: {
       app_role:
