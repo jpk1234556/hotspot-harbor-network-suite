@@ -27,8 +27,8 @@ function Onboarding() {
     setBusy(true);
     const { data: orgId, error } = await supabase.rpc("create_organization", {
       _name: name,
-      _phone: phone || undefined,
-      _email: email || undefined,
+      ...(phone ? { _phone: phone } : {}),
+      ...(email ? { _email: email } : {}),
     });
     if (error || !orgId) {
       setBusy(false);

@@ -90,7 +90,7 @@ function SettingsPage() {
       });
     }
     setBusy(false);
-    if (error) return toast.error(error.message);
+    if (error) { toast.error(error.message); return; }
     toast.success("Business details saved");
     queryClient.invalidateQueries({ queryKey: ["memberships"] });
   }
@@ -100,7 +100,7 @@ function SettingsPage() {
     setBusy(true);
     const { error } = await supabase.rpc("seed_demo_data", { _org: activeOrgId });
     setBusy(false);
-    if (error) return toast.error(error.message);
+    if (error) { toast.error(error.message); return; }
     toast.success("Sample data loaded");
     queryClient.invalidateQueries();
   }
@@ -112,7 +112,7 @@ function SettingsPage() {
       const { error } = await supabase.from(table).delete().eq("organization_id", activeOrgId).eq("is_demo", true);
       if (error) {
         setBusy(false);
-        return toast.error(`Could not clear ${table}: ${error.message}`);
+        toast.error(`Could not clear ${table}: ${error.message}`); return;
       }
     }
     await supabase.from("audit_logs").insert({

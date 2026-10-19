@@ -170,7 +170,7 @@ function Shell() {
         {isLoading ? (
           <Skeleton className="h-9 w-56" />
         ) : (
-          <Select value={activeOrgId ?? undefined} onValueChange={setActiveOrgId}>
+          <Select value={activeOrgId ?? ""} onValueChange={setActiveOrgId}>
             <SelectTrigger className="w-56 sm:w-72">
               <SelectValue placeholder="Select business" />
             </SelectTrigger>

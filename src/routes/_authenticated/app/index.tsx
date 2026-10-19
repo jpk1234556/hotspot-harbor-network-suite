@@ -408,7 +408,7 @@ function Kpi({
   label: string;
   value: string | number | undefined;
   loading: boolean;
-  tone?: "success" | "danger" | "warning";
+  tone?: "success" | "danger" | "warning" | undefined;
 }) {
   const toneClass =
     tone === "success" ? "text-success" : tone === "danger" ? "text-destructive" : tone === "warning" ? "text-warning" : "text-foreground";
